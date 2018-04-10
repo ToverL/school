@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.oracle.dao.UserDao">
+    <insert id="replace" parameterType="com.oracle.vo.User">
+        replace into user (userid, password, workschool, name, sex, nation, worktime, wentichenxu, zhiwu, zhichen, zhuanrenjiaoshi, kemu, nianji, banji, banzhuren, phone, tip, shenfen,havelist,fenzu,memory,memoryflag,laterdisk) values (
+        #{userid}, #{password}, #{workschool}, #{name}, #{sex}, #{nation}, #{worktime}, #{wentichenxu}, #{zhiwu}, #{zhichen}, #{zhuanrenjiaoshi}, #{kemu}, #{nianji}, #{banji}, #{banzhuren}, #{phone}, #{tip}, #{shenfen},#{havelist},#{fenzu},#{memory},#{memoryflag},#{laterdisk}
+        );
+    </insert>
+    <insert id="save" parameterType="com.oracle.vo.User">
+        insert into user (userid, password, workschool, name, sex, nation, worktime, wentichenxu, zhiwu, zhichen, zhuanrenjiaoshi, kemu, nianji, banji, banzhuren, phone, tip, shenfen,havelist,fenzu,memory,memoryflag,laterdisk) values (
+        #{userid}, #{password}, #{workschool}, #{name}, #{sex}, #{nation}, #{worktime}, #{wentichenxu}, #{zhiwu}, #{zhichen}, #{zhuanrenjiaoshi}, #{kemu}, #{nianji}, #{banji}, #{banzhuren}, #{phone}, #{tip}, #{shenfen},#{havelist},#{fenzu},#{memory},#{memoryflag},#{laterdisk}
+        );
+    </insert>
+    
+    <insert id="saveReplace" parameterType="com.oracle.vo.User">
+        replace into user (userid, password, workschool, name, sex, nation, worktime, wentichenxu, zhiwu, zhichen, zhuanrenjiaoshi, kemu, nianji, banji, banzhuren, phone, tip, shenfen,havelist,fenzu,memory,memoryflag,laterdisk) values (
+        #{userid}, #{password}, #{workschool}, #{name}, #{sex}, #{nation}, #{worktime}, #{wentichenxu}, #{zhiwu}, #{zhichen}, #{zhuanrenjiaoshi}, #{kemu}, #{nianji}, #{banji}, #{banzhuren}, #{phone}, #{tip}, #{shenfen},#{havelist},#{fenzu},#{memory},#{memoryflag},#{laterdisk}
+        );
+    </insert>
+
+    <select id="findOne" parameterType="com.oracle.vo.User" resultType="com.oracle.vo.User">
+        select * from user WHERE userid=#{userid} AND password=#{password};
+    </select>
+    <select id="findOneById" parameterType="com.oracle.vo.User" resultType="com.oracle.vo.User">
+        select * from user where userid=#{userid};
+    </select>
+    <update id="setHaveList">
+        update user set  havelist=1  where  userid=#{userid};
+    </update>
+    <update id="setHaveList_0">
+        update user set  havelist=0  where  userid=#{userid};
+    </update>
+    <select id="findNotHaveDir" resultType="com.oracle.vo.User">
+        select * from user where havelist='0';
+    </select>
+    <update id="updateMemory" parameterType="com.oracle.vo.User">
+        update user set memory = #{memory} where userid=#{userid} ;
+    </update>
+    <select id="selectAll" resultType="com.oracle.vo.User">
+        select * from user where shenfen!='管理员';
+    </select>
+    <update id="setPassword" parameterType="com.oracle.vo.User">
+        update user set  password=#{password}  where userid=#{userid} ;
+    </update>
+    <select id="findName" parameterType="com.oracle.vo.User" resultType="com.oracle.vo.User">
+        <!--<bind name="name" value="'%'+#{name}+'%'" />-->
+        SELECT * FROM user WHERE name LIKE CONCAT('%',#{name},'%')
+    </select>
+</mapper>

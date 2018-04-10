@@ -1,0 +1,8 @@
+2018-04-10 09:39:18,480 [DEBUG] org.springframework.core.env.StandardEnvironment  - Adding [systemProperties] PropertySource with lowest search precedence
+2018-04-10 09:39:18,484 [DEBUG] org.springframework.core.env.StandardEnvironment  - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-04-10 09:39:18,484 [DEBUG] org.springframework.core.env.StandardEnvironment  - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-04-10 09:39:18,490 [INFO ] org.springframework.context.support.FileSystemXmlApplicationContext  - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@75bd9247: startup date [Tue Apr 10 09:39:18 CST 2018]; root of context hierarchy
+2018-04-10 09:39:18,532 [DEBUG] org.springframework.core.env.StandardEnvironment  - Adding [systemProperties] PropertySource with lowest search precedence
+2018-04-10 09:39:18,532 [DEBUG] org.springframework.core.env.StandardEnvironment  - Adding [systemEnvironment] PropertySource with lowest search precedence
+2018-04-10 09:39:18,532 [DEBUG] org.springframework.core.env.StandardEnvironment  - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2018-04-10 09:39:18,541 [INFO ] org.springframework.beans.factory.xml.XmlBeanDefinitionReader  - Loading XML bean definitions from file [E:\My work\school\spring-mybatis.xml]

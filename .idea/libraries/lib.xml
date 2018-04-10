@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/pageoffice4.4.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/sqlite-jdbc-3.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

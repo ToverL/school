@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.oracle.dao.DiskDao">
+    <select id="findChild" parameterType="com.oracle.vo.Disk" resultType="com.oracle.vo.Disk">
+        select * from disk WHERE diskfather=#{diskid};
+    </select>
+    <insert id="savedisk" parameterType="com.oracle.vo.Disk" useGeneratedKeys="true" keyProperty="diskid">
+        insert into disk (diskuserid, disktype, diskname, diskfather, disksize, disklen, permission, createtime,path,havechild,havefather) values (
+        #{diskuserid}, #{disktype}, #{diskname}, #{diskfather}, #{disksize}, #{disklen}, #{permission}, #{createtime},#{path},#{havechild},#{havefather}
+        );
+    </insert>
+    <update id="setHaveChild_1">
+        update disk set  havechild=1  where diskid=#{diskid};
+    </update>
+    <update id="setHaveChild_0">
+        update disk set  havechild=0  where diskid=#{diskid};
+    </update>
+    <select id="findOneByid" resultType="com.oracle.vo.Disk">
+        select * from disk WHERE diskid=#{diskid};
+    </select>
+    <delete id="delete_child" parameterType="com.oracle.vo.Disk">
+        DELETE from disk WHERE diskfather=#{diskid};
+    </delete>
+    <delete id="delete_self" parameterType="com.oracle.vo.Disk">
+        DELETE FROM disk WHERE diskid=#{diskid};
+    </delete>
+    <update id="setdisk" parameterType="com.oracle.vo.Disk">
+        update disk set diskname=#{diskname},disktype=#{disktype} where diskid=#{diskid};
+    </update>
+
+    <insert id="updateReplaceAll" parameterType="com.oracle.vo.Disk">
+        replace into disk (diskid,diskuserid, disktype, diskname, diskfather, disksize, disklen, permission, createtime, havechild, path, havefather) values (
+        #{diskid},#{diskuserid}, #{disktype}, #{diskname}, #{diskfather}, #{disksize}, #{disklen}, #{permission}, #{createtime},#{path},#{havechild},#{havefather}
+        );
+    </insert>
+
+    <update id="memorySizeLenUp" parameterType="com.oracle.vo.Disk">
+        update disk set disksize =#{disksize},disklen=#{disklen}  where diskid=#{diskid} ;
+    </update>
+
+    <select id="findDiskByUserId" resultType="com.oracle.vo.Disk">
+        select * from disk where diskuserid=#{diskuserid} and diskfather!='-1';
+    </select>
+
+    <select id="chackListIsHave" resultType="com.oracle.vo.Disk">
+        select * from disk where diskfather=#{diskfather} and diskname=#{diskname};
+    </select>
+
+    <select id="findOneByUser" parameterType="com.oracle.vo.User" resultType="com.oracle.vo.Disk">
+    select * from disk where diskname=#{name} and diskuserid=#{userid};
+    </select>
+
+</mapper>

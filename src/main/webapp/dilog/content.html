@@ -1,0 +1,43 @@
+<!--
+用户名：<input type="text"/>
+密码：<input type="text"/></br>
+<button id="yes">确定</button></br>
+<button id="cancel">取消</button>-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{
+            width: 260px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">
+    <form action="login.php" method="post">
+        <table align="center">
+            <tr>
+                <td>账号：</td>
+                <td><input type="text" name="uname"/></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="pass"/></td>
+            </tr>
+            <tr>
+                <td>权限等级：</td>
+                <td><input type="text" name="band"/></td>
+            </tr>
+            <tr>
+                <td class="a"><input type="submit" name="sub"  value="登陆"></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+</body>
+</html>
