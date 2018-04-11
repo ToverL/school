@@ -120,6 +120,8 @@
 
             <li><label>身份</label><select name="shenfen" class="dfinput">
                 <option value="普通用户">普通用户</option>
+                <option value="教案管理员">教案管理员</option>
+                <option value="档案管理员">档案管理员</option>
                 <option value="高级用户">高级用户</option>
             </select><i>当前身份:&nbsp;${user.shenfen}&nbsp;&nbsp;高级用户可查看下载所有档案</i></li>
             <li><label>分组</label><input name="fenzu" type="text" value="${user.fenzu}" class="dfinput" /><i>分组应该和教案分组保持一直，取同样名字</i></li>

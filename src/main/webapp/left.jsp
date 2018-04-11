@@ -19,6 +19,7 @@
 
     <script type="text/javascript">
         $(function(){
+
             //导航切换
             $(".menuson li").click(function(){
                 $(".menuson li.active").removeClass("active")
@@ -50,9 +51,13 @@
             <span><img src="images/leftico01.png" /></span>用户信息
         </div>
         <ul class="menuson">
-            <li class="active"><cite></cite><a href="selectuser.do" target="rightFrame">用户详情</a><i></i></li>
-            <li><cite></cite><a href="upuser.do" target="rightFrame">用户导入</a><i></i></li>
+       <c:if test="${sessionScope.user.shenfen=='管理员'}">
+           <li class="active"><cite></cite><a class="admin" href="selectuser.do" target="rightFrame">用户详情</a><i></i></li>
+           <li><cite></cite><a class="admin" href="upuser.do" target="rightFrame">用户导入</a><i></i></li>
+       </c:if>
+
         </ul>
+
     </dd>
 
     <dd>

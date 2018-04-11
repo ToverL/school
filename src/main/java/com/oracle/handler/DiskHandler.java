@@ -77,6 +77,8 @@ public class DiskHandler {
        if(path!=null){
            //进行记录最近访问
            if (path.equals("filelist.jsp")){
+               session.setAttribute("diskuserid",diskDao.findOneByid((int)disk.getDiskid()).getDiskuserid());
+               System.out.println("父亲"+diskDao.findOneByid((int)disk.getDiskid()).getDiskuserid());
                User user=(User) session.getAttribute("user");
                System.out.println("session里的user");
                System.out.println(user);

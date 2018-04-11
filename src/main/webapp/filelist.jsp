@@ -52,14 +52,29 @@
                         dataType: "json",
                         success: function f(data) {
                             if (data.success == "success") {
+
+                                <c:choose>
+                                    <c:when test="${(sessionScope.diskuserid==sessionScope.user.userid)||(sessionScope.user.shenfen=='管理员')||(sessionScope.user.shenfen=='教案管理员'&&sessionScope.root==0)||(sessionScope.user.shenfen=='档案管理员'&&sessionScope.root==-1)||sessionScope.user.shenfen=='高级用户'}">
                                 if(q=='word'){
                                     POBrowser.openWindowModeless('SimpleWord/Word.jsp', 'width=1050px;height=900px;');
                                 }else if(q=="ppt"){
                                     POBrowser.openWindowModeless('SimpleWord/PPT.jsp' , 'width=1050px;height=900px;');
                                 }else if(q=="excl"){
                                     POBrowser.openWindowModeless('SimpleWord/Excel.jsp' , 'left=20px;top=10px;width=780px;height=800px;frame=no;');
+                                }
+                                    </c:when>
+                                    <c:otherwise>
+                                if(q=='word'){
+                                    POBrowser.openWindowModeless('SimpleWord/OpenWord.jsp', 'width=1050px;height=900px;');
+                                }else if(q=="ppt"){
+                                    POBrowser.openWindowModeless('SimpleWord/OpenPPT.jsp' , 'width=1050px;height=900px;');
+                                }else if(q=="excl"){
+                                    POBrowser.openWindowModeless('SimpleWord/OpenExcel.jsp' , 'left=20px;top=10px;width=780px;height=800px;frame=no;');
+                                }
+                                    </c:otherwise>
+                                    </c:choose>
 
-                                }else if(q=="mp4"){
+                                else if(q=="mp4"){
                                     window.open("showvidio.jsp?path="+pp);
                                 }else if(q=="jpg"){
                                     window.open("showjpg.jsp?path="+pp);
@@ -166,10 +181,12 @@
     </tbody>
 </table>
 
-<div style="position:relative;left:20px;top:400px">
-    <%@include file="index.jsp"%>
+<c:if test="${(sessionScope.diskuserid==sessionScope.user.userid)||(sessionScope.user.shenfen=='管理员')||(sessionScope.user.shenfen=='教案管理员'&&sessionScope.root==0)||(sessionScope.user.shenfen=='档案管理员'&&sessionScope.root==-1)||sessionScope.user.shenfen=='高级用户'}">
+    <div style="position:relative;left:20px;top:400px">
+        <%@include file="index.jsp"%>
+    </div>
+</c:if>
 
-</div>
 
 
 
