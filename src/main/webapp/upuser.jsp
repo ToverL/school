@@ -26,10 +26,11 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
 
+
         $(function () {
 
-
             $(".td_click").click(function () {
+
                 var path = $(this).children('input').val();
                 var q = $(this).children('input').attr("class");
                 var p=path.split("\\");
@@ -53,6 +54,7 @@
                         data: disk,
                         dataType: "json",
                         success: function f(data) {
+                            alert("<%=Object.class.getResource("pageoffice.js")%>");
                             if (data.success == "success") {
                                 if(q=='word'){
                                     POBrowser.openWindowModeless('SimpleWord/Word.jsp', 'width=1050px;height=900px;');

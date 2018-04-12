@@ -136,14 +136,7 @@ public class DiskHandler {
             session.setAttribute("laterdisk",dd);
             session.setAttribute("user",user1);
         }
-        int root=(int)session.getAttribute("root");
-        if (root==-5){
-            return "mine.do";
-        }
-        if(root==-1){
-            return "ship2.do";
-        }
-        return "ship.do";
+        return "mine.do";
     }
 
     @RequestMapping(value = "setbase.do")

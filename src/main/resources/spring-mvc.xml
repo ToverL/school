@@ -76,7 +76,9 @@
     <mvc:default-servlet-handler />
 
     <!-- 对静态资源文件的访问 支持访问WEB-INF目录 -->
-    <!-- <mvc:resources location="/uikit-2.3.1/" mapping="/uikit-2.3.1/**" /> -->
+     <!--<mvc:resources location="/WEB-INF/lib/" mapping="/**/**" />-->
+
+
 
 
     <bean id="stringConverter"

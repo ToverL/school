@@ -19,12 +19,6 @@
 
        function shenfen(){
 
-            var user='${sessionScope.user.shenfen}';
-            if(user=='管理员'||user=='档案管理员'||user=='高级用户'){
-                window.location.href="ship2.do";
-            } else {
-                alert("您没有此权限！");
-            }
         }
 
         $(function(){
@@ -53,7 +47,9 @@
         <%--<li><a href="imglist.html"  target="rightFrame"><img src="images/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li>--%>
         <%--<li><a href="tools.html"  target="rightFrame"><img src="images/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>--%>
         <li><a href="ship.do" target="rightFrame"><img src="images/icon05.png" title="文件管理" /><h2>教案课件</h2></a></li>
-        <li><a id="dangan" href="javascript:void(0);" onclick="shenfen()" target="rightFrame"><img src="images/icon01.png" title="工作台" /><h2>督导档案</h2></a></li>
+        <c:if test="${(sessionScope.user.shenfen=='管理员')||(sessionScope.user.shenfen=='档案管理员'&&sessionScope.root==-1)||sessionScope.user.shenfen=='高级用户'}">
+            <li><a id="dangan" href="ship2.do" target="rightFrame"><img src="images/icon01.png" title="工作台" /><h2>督导档案</h2></a></li>
+        </c:if>
         <li><a href="userself.do"  target="rightFrame"><img src="images/icon06.png" title="系统设置" /><h2>个人设置</h2></a></li>
 </ul>
 
